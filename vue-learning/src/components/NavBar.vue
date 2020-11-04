@@ -14,7 +14,7 @@
   
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a @click="openDrawer"><i class="fa fa-bars"></i></a>
   </div>  
 </div>
 </template>
@@ -27,12 +27,21 @@ export default {
             type: String,
             required: true
         }
+    },
+    setup(props, ctx){
+        const openDrawer = () => {
+            ctx.emit("open-drawer");
+        };
+
+        return {
+            openDrawer
+        }
     }
 }
 </script>
 
 <style scoped>
-.route-wrapper {
+.route-wrapper { /*make this global */
     padding: 0 !important;
 }
 
@@ -40,6 +49,10 @@ export default {
   position: relative;
   overflow: hidden;
   background-color: rgb(220,220,220);
+}
+
+a {    
+  cursor: pointer;
 }
 
 .topnav a {
