@@ -28,7 +28,8 @@ export default {
   },
   setup(){
     const store =  useStore(); // accessing the store 
-    const users = computed(() => store.state.users); // getting users data from store
+    // const users = computed(() => store.state.users); // getting users data from store
+    const users = computed(() => store.state.Users.users); // getting users data from store // but from a store module
 
     const openNav = () => {
       document.getElementById("mySidenav").style.width = "275px";
@@ -41,7 +42,8 @@ export default {
     }
 
     onMounted(() => { // lifecycle hook
-      store.dispatch('loadUsers');
+      // store.dispatch('loadUsers'); // move this to appropriate page
+      store.dispatch('Users/loadUsers'); // reference the module
     })
 
     return{
