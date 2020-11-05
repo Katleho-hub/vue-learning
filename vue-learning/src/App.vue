@@ -12,6 +12,7 @@
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue';
 import Drawer from '@/components/Drawer.vue';
+import { useStore } from 'vuex';
 
 export default {
   name: 'App',
@@ -20,6 +21,8 @@ export default {
     Drawer
   },
   setup(){
+    const store =  useStore();
+
     const openNav = () => {
       document.getElementById("mySidenav").style.width = "275px";
       document.getElementById("app").style.marginLeft = "275px";
@@ -28,6 +31,7 @@ export default {
     const closeNav = () => {
       document.getElementById("mySidenav").style.width = "0";
       document.getElementById("app").style.marginLeft = "0";
+      store.dispatch('loadUsers');
     }
 
     return{
