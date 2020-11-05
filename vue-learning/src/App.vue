@@ -6,10 +6,6 @@
   <Drawer id="mySidenav" @close-drawer="closeNav"/>
   <router-view/>
 
-  <div>
-    {{users}}
-  </div>
-
   </div>
 </template>
 
@@ -17,8 +13,6 @@
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue';
 import Drawer from '@/components/Drawer.vue';
-import { useStore } from 'vuex';
-import { computed, onMounted } from 'vue';
 
 export default {
   name: 'App',
@@ -27,10 +21,6 @@ export default {
     Drawer
   },
   setup(){
-    const store =  useStore(); // accessing the store 
-    // const users = computed(() => store.state.users); // getting users data from store
-    const users = computed(() => store.state.Users.users); // getting users data from store // but from a store module
-
     const openNav = () => {
       document.getElementById("mySidenav").style.width = "275px";
       document.getElementById("app").style.marginLeft = "275px";
@@ -41,15 +31,9 @@ export default {
       document.getElementById("app").style.marginLeft = "0";
     }
 
-    onMounted(() => { // lifecycle hook
-      // store.dispatch('loadUsers'); // move this to appropriate page
-      store.dispatch('Users/loadUsers'); // reference the module
-    })
-
     return{
       openNav,
-      closeNav,
-      users
+      closeNav
     }
   }
 }

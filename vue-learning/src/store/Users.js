@@ -11,7 +11,6 @@ app.use(VueAxios, axios);
 
 app.axios.defaults.baseURL = "https://jsonplaceholder.typicode.com/";
 
-// const UsersModule = {
 export const UsersModule = {
     // format like the normal store
     namespaced: true, // when namespace is true to access module the namespace "Users[Users.js]" has to be used (i.e. store.state.Users.users)
@@ -41,5 +40,3 @@ export const UsersModule = {
         }
       }
 }
-
-// export default UsersModule;
