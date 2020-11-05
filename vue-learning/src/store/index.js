@@ -13,8 +13,12 @@ app.use(VueAxios, axios);
 app.axios.defaults.baseURL = "https://jsonplaceholder.typicode.com/";
 
 export default createStore({
-  state: {
-    users: []
+  state() {
+    const users = [];
+
+    return{
+      users
+    }
   },
   actions: {
     loadUsers({ commit }) {
