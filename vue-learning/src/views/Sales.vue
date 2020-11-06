@@ -25,11 +25,11 @@ export default {
     const sales = computed(() => store.state.Sales.sales);
 
     onMounted(() => {
-      store.dispatch("Sales/loadSales");
+      if (!sales.value.length) store.dispatch("Sales/loadSales");
     });
 
     return {
-      sales
+      sales,
     };
   },
 };

@@ -28,7 +28,7 @@ export default {
 
     onMounted(() => {
       // lifecycle hook
-      store.dispatch("Users/loadUsers"); // reference the module
+      if (!users.value.length) store.dispatch("Users/loadUsers"); // reference the module
     });
 
     return {

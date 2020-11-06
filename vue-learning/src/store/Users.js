@@ -28,6 +28,7 @@ export const UsersModule = {
   },
   mutations: {
     SAVE_USERS(state, users) {
+      
       state.users = users;
     }
   }

@@ -1,26 +1,40 @@
 <template>
   <!-- table with four columns -->
-  <table>
-    <caption>
-      Sales Summary
-    </caption>
-    <thead>
-      <tr>
-        <th scope="col">Order ID</th>
-        <th scope="col">Company Name</th>
-        <th scope="col">Sale Amount</th>
-        <th scope="col">Shipped Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="order in sales" :key="order.OrderID" :obj="order ? order : ''">
-        <td data-label="Order ID">{{ order.OrderID }}</td>
-        <td data-label="Company Name">{{ order.CompanyName }}</td>
-        <td data-label="Sale Amount">{{ order.SaleAmount }}</td>
-        <td data-label="Shipped Date">{{ order.ShippedDate }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <!-- <div v-for="(value, index) in sales" :key="index"> -->
+      <!-- nested for loop -->
+      <!-- <span v-for="(val, key, index) in value" :key="index">
+        {{ key }} : {{ val }}
+        <br />
+      </span>
+      <br /><br /><br />
+    </div> -->
+    <table>
+      <caption>
+        Sales Summary
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Order ID</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Sale Amount</th>
+          <th scope="col">Shipped Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="order in sales"
+          :key="order.OrderID"
+          :obj="order ? order : ''"
+        >
+          <td data-label="Order ID">{{ order.OrderID }}</td>
+          <td data-label="Company Name">{{ order.CompanyName }}</td>
+          <td data-label="Sale Amount">{{ order.SaleAmount }}</td>
+          <td data-label="Shipped Date">{{ order.ShippedDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -29,7 +43,7 @@ export default {
   props: {
     sales: {
       type: Object,
-      required: true
+      required: true,
     },
   },
 };
