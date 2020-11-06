@@ -40,11 +40,6 @@ export default {
 
 <style scoped>
 /* cards */
-.container {
-  width: 90%;
-  margin: 50px auto;
-  padding: 0;
-}
 
 .row {
   display: flex;
