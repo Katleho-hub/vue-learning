@@ -1,11 +1,11 @@
 <template>
   <div class="Users">
     <HelloWorld msg="Users" />
-
     <div class="container">
       <div class="row">
         <Card v-for="user in users" :key="user.id" :user="user ? user : ''" />
       </div>
+      
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
     });
 
     return {
-      users,
+      users
     };
   },
 };

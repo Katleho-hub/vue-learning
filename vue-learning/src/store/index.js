@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 
 import { UsersModule } from './Users';
+import { SalesModule } from './Sales';
 
 export default createStore({
   state() {},
@@ -10,7 +11,9 @@ export default createStore({
   mutations: {},
 
   modules: { // calling store modules
-    Users: UsersModule
+    Users: UsersModule,
+    Sales: SalesModule
+
   }
 })
  
