@@ -7,9 +7,15 @@
         <router-link to="/" class="route-wrapper">
             <li @click="closeDrawer"><a><i class="fa fa-home"></i>Home</a></li>
         </router-link>
+
         <li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
-        <li><a href="#"><i class="fa fa-address-card"></i>About</a></li>
+
+        <router-link to="/Users" class="route-wrapper">
+            <li @click="closeDrawer"><a><i class="fa fa-address-card"></i>Users</a></li>
+        </router-link>
+
         <li><a href="#"><i class="fa fa-address-book"></i>Contact</a></li>
+
         <li><a href="#"><i class="fa fa-map-pin"></i>Map</a></li>
         </ul> 
     </div>
