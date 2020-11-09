@@ -3,9 +3,13 @@
     <HelloWorld msg="Users" />
     <div class="container">
       <div class="row">
-        <Card v-for="user in users" :key="user.id" :user="user ? user : ''" />
+        <!-- <Card v-for="user in users" :key="user.id" :user="user ? user : ''" /> -->
+        <Card 
+          v-for="user in usersData"
+          :key="user.id"
+          :user="user ? user : ''"
+        />
       </div>
-      
     </div>
   </div>
 </template>
@@ -14,6 +18,7 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 import Card from "@/components/Card.vue";
 import { computed, onMounted } from "vue";
+// import { computed, onMounted, reactive, watch } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -25,6 +30,9 @@ export default {
   setup() {
     const store = useStore();
     const users = computed(() => store.state.Users.users);
+    const usersData = computed(() => store.state.Users.usersData);
+    
+
 
     onMounted(() => {
       // lifecycle hook
@@ -32,13 +40,14 @@ export default {
     });
 
     return {
-      users
+      users,
+      usersData
     };
   },
 };
 </script>
 
-<style scoped>
+<style scoped> /* change this|| make it global */
 /* cards */
 
 .row {

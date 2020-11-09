@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-header">
       <h1>{{ user.name }}</h1>
     </div>
@@ -7,6 +7,18 @@
       <ul>
         <li>Email: {{ user.email }}</li>
         <li>Phone: {{ user.phone }}</li>
+      </ul>
+    </div>
+  </div> -->
+  <div class="card">
+    <div class="card-header">
+      <h1>{{ user.header }}</h1>
+    </div>
+    <div class="card-body">
+      <ul v-for="(data, index) in user.body" :key="index">
+        <li>
+          {{data[0]}}: {{ data[1] }}
+        </li>
       </ul>
     </div>
   </div>
@@ -67,7 +79,8 @@ export default {
 
 ul{
   list-style-type: none;
-  padding-left: 0;  
+  padding-left: 0; 
+  overflow-wrap: break-word; 
 }
 
 ul li{
