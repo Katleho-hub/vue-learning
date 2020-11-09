@@ -1,57 +1,62 @@
 <template>
-<!-- Top navigation -->
-<div class="topnav">
+  <!-- Top navigation -->
+  <div class="topnav">
+    <!-- Left-aligned links (default) -->
+    <router-link to="/" class="route-wrapper">
+      <a id="home-link"><i class="fa fa-home"></i></a>
+    </router-link>
 
-  <!-- Left-aligned links (default) -->
-  <router-link to="/" class="route-wrapper">
-    <a><i class="fa fa-home"></i></a>
-  </router-link>
+    <!-- Centered link -->
+    <div class="topnav-centered">
+      <a>{{ pageName }}</a>
+    </div>
 
-  <!-- Centered link -->
-  <div class="topnav-centered">
-    <a>{{pageName}}</a>
+    <!-- Right-aligned links -->
+    <div class="topnav-right">
+      <a @click="openNav"><i class="fa fa-bars"></i></a>
+    </div>
   </div>
-  
-  <!-- Right-aligned links -->
-  <div class="topnav-right">
-    <a @click="openDrawer"><i class="fa fa-bars"></i></a>
-  </div>  
-</div>
 </template>
 
 <script>
 export default {
-    name: "NavBar",
-    props: {
-        pageName: {
-            type: String,
-            required: true
-        }
+  name: "NavBar",
+  props: {
+    pageName: {
+      type: String,
+      required: true,
     },
-    setup(props, ctx){
-        const openDrawer = () => {
-            ctx.emit("open-drawer");
-        };
+  },
+  setup() {
 
-        return {
-            openDrawer
-        }
-    }
-}
+    const openNav = () => {
+      if (window.screen.width > 600) {
+        document.getElementById("app").style.marginLeft = "275px";
+      }
+      document.getElementById("mySidenav").style.display = "block";
+    };
+
+    return {
+      openNav
+    };
+  },
+};
 </script>
 
 <style scoped>
-.route-wrapper { /*make this global */
-    padding: 0 !important;
+.route-wrapper {
+  /*make this global */
+  padding: 0 !important;
 }
 
 .topnav {
   position: relative;
   overflow: hidden;
-  background-color: rgb(220,220,220);
+  background-color: rgb(220, 220, 220);
+  box-shadow: 0 3px 2px darkgrey;
 }
 
-a {    
+a {
   cursor: pointer;
 }
 
@@ -65,7 +70,7 @@ a {
 }
 
 .topnav a:hover {
-  background-color: rgb(220,220,220);
+  background-color: rgb(220, 220, 220);
   color: #f1f1f1;
 }
 
@@ -81,24 +86,29 @@ a {
   float: right;
 }
 
-.topnav-centered a:hover{
-  background-color: rgb(220,220,220);
+.topnav-centered a:hover {
+  background-color: rgb(220, 220, 220);
   color: #2c3e50;
   cursor: context-menu;
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a, .topnav-right {
+  .topnav a,
+  .topnav-right {
     float: none;
     display: block;
     border-top: 1px solid lightgrey;
   }
-  
+
   .topnav-centered a {
     position: relative;
     top: 0;
     left: 0;
     transform: none;
+  }
+
+  #home-link{
+    display: none;
   }
 }
 </style>

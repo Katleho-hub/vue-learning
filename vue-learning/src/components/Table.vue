@@ -2,8 +2,8 @@
   <!-- table with four columns -->
   <div>
     <!-- <div v-for="(value, index) in sales" :key="index"> -->
-      <!-- nested for loop -->
-      <!-- <span v-for="(val, key, index) in value" :key="index">
+    <!-- nested for loop -->
+    <!-- <span v-for="(val, key, index) in value" :key="index">
         {{ key }} : {{ val }}
         <br />
       </span>
@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr
+        <tr class="table-data"
           v-for="order in sales"
           :key="order.OrderID"
           :obj="order ? order : ''"
@@ -69,6 +69,10 @@ table tr {
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   padding: 0.35em;
+}
+.table-data:hover {
+  transform: scale(1.1);
+  background-color:  rgb(220,220,220);
 }
 
 table th,

@@ -1,23 +1,23 @@
 <template>
   <!-- drawer -->
   <div id="mySidenav" class="sidenav">
-    <a class="closebtn" @click="closeDrawer"><i class="fa fa-times"></i></a>
+    <a class="closebtn" @click="closeNav"><i class="fa fa-times"></i></a>
     <h2 class="sidenav-header">Menu</h2>
     <ul>
       <router-link to="/" class="route-wrapper">
-        <li @click="closeDrawer">
+        <li @click="closeNav">
           <a><i class="fa fa-home"></i>Home</a>
         </li>
       </router-link>
 
       <router-link to="/Users" class="route-wrapper">
-        <li @click="closeDrawer">
+        <li @click="closeNav">
           <a><i class="fa fa-address-card"></i>Users</a>
         </li>
       </router-link>
 
       <router-link to="/Sales" class="route-wrapper">
-        <li @click="closeDrawer">
+        <li @click="closeNav">
           <a href="#"><i class="fa fa-book"></i>Sales</a>
         </li>
       </router-link>
@@ -36,13 +36,17 @@
 <script>
 export default {
   name: "Drawer",
-  setup(props, ctx) {
-    const closeDrawer = () => {
-      ctx.emit("close-drawer");
+  setup() {
+
+    const closeNav = () => {
+      if (window.screen.width > 600) {
+        document.getElementById("app").style.marginLeft = "0";
+      }
+      document.getElementById("mySidenav").style.display = "none";
     };
 
     return {
-      closeDrawer,
+      closeNav
     };
   },
 };
@@ -77,6 +81,7 @@ export default {
 .sidenav {
   height: 100%;
   width: 0;
+  width: 275px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -85,6 +90,7 @@ export default {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  display: none;
 }
 
 .sidenav a {
@@ -113,6 +119,23 @@ export default {
   }
   .sidenav a {
     font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav {
+    padding-top: 15px;
+    position: relative;
+    width:100vw;
+    box-shadow: 0 3px 2px darkgrey;
+  }
+
+  .sidenav a {
+    display: contents;
+  }
+
+  .sidenav ul li{
+    display: contents;
   }
 }
 
