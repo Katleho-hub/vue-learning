@@ -37,7 +37,6 @@
 export default {
   name: "Drawer",
   setup() {
-
     const closeNav = () => {
       if (window.screen.width > 600) {
         document.getElementById("app").style.marginLeft = "0";
@@ -46,7 +45,7 @@ export default {
     };
 
     return {
-      closeNav
+      closeNav,
     };
   },
 };
@@ -64,6 +63,7 @@ export default {
 }
 
 .sidenav ul li {
+  /* border-top: 1px solid lightgrey; */
   border-top: 1px solid lightgrey;
   display: flex;
   padding: 5px 5%;
@@ -79,8 +79,7 @@ export default {
 }
 
 .sidenav {
-  height: 100%;
-  width: 0;
+  height: 98%;
   width: 275px;
   position: fixed;
   z-index: 1;
@@ -89,8 +88,10 @@ export default {
   background-color: rgb(220, 220, 220);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
-  display: none;
+  display: none;  
+  margin: 0.5% 0 0  0.5%;
+  box-shadow: -3px -3px 3px 0 rgba(199, 198, 198, 0.767),
+    3px 3px 3px 0 rgb(105, 103, 103, 0.5);
 }
 
 .sidenav a {
@@ -126,15 +127,15 @@ export default {
   .sidenav {
     padding-top: 15px;
     position: relative;
-    width:100vw;
-    box-shadow: 0 3px 2px darkgrey;
+    width: 95%;
+    margin: 2% 0 0 2.5%;
   }
 
   .sidenav a {
     display: contents;
   }
 
-  .sidenav ul li{
+  .sidenav ul li {
     display: contents;
   }
 }

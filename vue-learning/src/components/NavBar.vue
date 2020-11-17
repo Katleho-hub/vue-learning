@@ -54,6 +54,11 @@ export default {
   overflow: hidden;
   background-color: rgb(220, 220, 220);
   box-shadow: 0 3px 2px darkgrey;
+  margin-top: 10px;
+  width: 97%;
+  margin-left: 1.4%;
+  box-shadow: -3px -3px 3px 0 rgba(199, 198, 198, 0.767),
+        3px 3px 3px 0 rgb(105, 103, 103, .5);
 }
 
 a {

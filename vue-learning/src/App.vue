@@ -19,7 +19,9 @@ export default {
   components: {
     NavBar,
     Drawer,
-  }
+  },
+  setup() {
+  },
 };
 </script>
 
@@ -30,12 +32,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* transition: 0.1s; */
+  background-color: rgba(220 220 220);
 }
 
 body {
   margin: 0;
   padding: 0;
+  background-color: rgba(220 220 220);
 }
 
 .container {

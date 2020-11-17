@@ -40,10 +40,14 @@ export default {
 
 .card {
   width: 20%;
-  background: #fff;
+  background: rgb(220, 220, 220);
   border: 1px solid #ccc;
+  border-radius: 5%;
   margin-bottom: 50px;
   transition: 0.3s;
+  box-shadow: -3px -3px 3px 0 rgba(230, 230, 230, 0.767),
+        3px 3px 3px 0 rgba(148, 145, 145, 0.5);
+  overflow: hidden;
 }
 
 .card-header {
@@ -51,6 +55,11 @@ export default {
   padding: 5px 0px;
   background: #555;
   color: #f2f2f2;
+  box-shadow: -3px -3px 3px 0 rgba(236, 233, 233, 0.767),
+        3px 3px 3px 0 rgba(145, 137, 137, 0.5);
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 90%;
 }
 
 .card-body {
@@ -61,8 +70,9 @@ export default {
 
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.2);
+  box-shadow: -40px -40px -40px 0px rgb(255, 255, 255, 1),
+       40px 40px 40px 0px rgb(145, 137, 137);
 }
 
 @media screen and (max-width: 1000px) {
